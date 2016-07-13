@@ -93,6 +93,7 @@ public class ProfileFragment extends Fragment {
         });
 
         TextView textNama = (TextView) v.findViewById(R.id.et_name);
+        TextView textEmail = (TextView) v.findViewById(R.id.et_email);
         TextView textAlamat = (TextView) v.findViewById(R.id.et_address);
         TextView textTelepon = (TextView) v.findViewById(R.id.et_phone);
 
@@ -109,6 +110,7 @@ public class ProfileFragment extends Fragment {
         apiKey = user.get("api");
 
         textNama.setText(nama);
+        textEmail.setText(email);
         textAlamat.setText(alamat);
         textTelepon.setText(telepon);
 
@@ -299,7 +301,6 @@ public class ProfileFragment extends Fragment {
                 progress.setVisibility(View.GONE);
                 tv_message.setVisibility(View.VISIBLE);
                 tv_message.setText(e);
-
 
                 hideDialog();
             }
