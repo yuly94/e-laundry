@@ -14,6 +14,9 @@ public class AppConfig {
 	public static String URL_RESET = "http://yuly.besaba.com/elaundry/v1/index.php/resetpass";
 
 	// Server user register url
+	public static String URL_CHANGEPASS = "http://yuly.besaba.com/elaundry/v1/changepass";
+
+	// Server user register url
 	public static String URL_TASK = "http://yuly.besaba.com/elaundry/v1/index.php/tasks";
 
 	// Server user register url

@@ -71,6 +71,9 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setCancelable(false);
+
         View v = inflater.inflate(R.layout.fragment_profile_new, container,
                 false);
 
@@ -125,20 +128,7 @@ public class ProfileFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    private void getApiKey(){
-        // SqLite database handler
-        db = new SQLiteHandler(getContext());
 
-        // session manager
-        session = new SessionManager(getContext());
-
-        // Fetching user details from SQLite
-        HashMap<String, String> user = db.getUserDetails();
-
-
-        apiKey = user.get("api");
-
-    }
 
     private void showPasswordDialog(){
 
@@ -228,6 +218,8 @@ public class ProfileFragment extends Fragment {
      * function to verify login details in mysql db
      * */
     private void changePasswordProcess(final String old_password,final String new_password){
+
+
         // Tag used to cancel the request
         String tag_string_req = "req_login";
 
@@ -235,7 +227,7 @@ public class ProfileFragment extends Fragment {
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_RESET, new Response.Listener<String>() {
+                AppConfig.URL_CHANGEPASS, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
